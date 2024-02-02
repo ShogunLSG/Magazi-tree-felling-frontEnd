@@ -8,6 +8,24 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.js">
+      import {createApp} from 'vue'
+      import MyComponent from './my-component.js'
+
+      createApp(MyComponent).mount('#app')
+    </script>
+    <style>
+      .app{
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(44, 106, 12);
+      }
+      body{
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(79, 171, 32);
+      }
+    </style>
   </body>
 </html>
