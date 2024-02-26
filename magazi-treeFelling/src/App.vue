@@ -1,91 +1,63 @@
 <script setup>
-import MenuToolBar from './components/MenuToolBar.vue'
-import SlideShow from './components/SlideShow.vue';
+import { RouterView } from 'vue-router'
 </script>
-
 <template>
   <div class="Wrapper">
-    <MenuToolBar/>
-    <SlideShow />
+        <nav>
+      <div class="tool-bar">
+        <v-toolbar :elevation="8" title="Magazi Tree Felling" class="tool-bar-content">
+          <div class="d-flex justify-space-around">
+            <v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  color="primary"
+                  v-bind="props"
+                >
+                  Locations
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, index) in items"
+                  :key="index"
+                  :value="index"
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  color="primary"
+                  v-bind="props"
+                >
+                  Services
+                </v-btn>
+
+                <v-btn class="getQuoute" rounded="xl" varient="tonal" append-icon="$vuetify">
+                  <RouterLink to="/quote">Get Quote</RouterLink>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, index) in items"
+                  :key="index"
+                  :value="index"
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+        </v-toolbar>
+      </div>
+    </nav>
     <div class="content">
-      <h1>Welcome to Magazi tree felling</h1>
-      <v-container>
-        <v-row no-gutters>
-          <v-col order="12">
-            <v-sheet class="pa-2 ma-2">
-              <img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"/>
-            </v-sheet>
-          </v-col>
-          <v-col order="1">
-            <v-sheet class="pa-2 ma-2">
-              <p>
-                Magazi Tree Felling is a professional and reliable tree felling company that offers a range of services for residential and commercial properties.
-                Whether you need tree removal, pruning, trimming, stump grinding, site clearing, or any other tree-related service, we have the skills, equipment, and experience to handle it.
-                We follow the highest standards of safety and quality. 
-                We are passionate about trees and the environment, and we strive to preserve and enhance the beauty and health of your trees.
-                We also offer advice on tree care and maintenance, and we can help you with any tree-related issues or problems.
-              </p>
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
+      <RouterView />
     </div>
     <div class="services">
-      <h1>Why Choose us?</h1>
-      <ul>
-        <li>We have over [number] years of experience in the tree felling industry</li>
-        <li>We offer a wide range of services for all your tree needs</li>
-        <li>We have a team of qualified and skilled arborists who can handle any challenge</li>
-        <li>We use the latest equipment and technology to ensure efficiency and safety</li>
-        <li>We are fully insured and certified, and we comply with all the relevant regulations and standards</li>
-        <li>We offer competitive prices and free quotes</li>
-        <li>We have a loyal and satisfied customer base, and we have many positive reviews and testimonials</li>
-        <li>We are available 24/7 for emergencies and consultations</li>
-      </ul>
+      <!-- Was for Services -->
     </div>
-    <v-container>
-      <v-row no-gutters>
-        <v-col order="6">
-          <v-sheet class="pa-2 ma-2">
-            <img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"/>
-          </v-sheet>
-        </v-col>
-        <v-col order="12">
-          <v-sheet class="pa-2 ma-2">
-            <img src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"/>
-          </v-sheet>
-        </v-col>
-        <v-col order="1">
-          <v-sheet class="pa-2 ma-2">
-            <img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"/>
-          </v-sheet>
-        </v-col>
-      </v-row>
-    </v-container>
-    <h1>Our Services</h1>
-    <p>We offer the following services forour clients: </p>
-    <ul>
-      <li>Tree felling – the process of bringing down a tree safely and efficiently</li>
-      <li>Tree pruning and trimming – the removal of dead, diseased, or unwanted branches to improve the shape and health of the tree</li>
-      <li>Stump grinding and removal – the elimination of the remaining tree stump and roots using a specialized machine</li>
-      <li>Site clearing – the removal of vegetation, rubble, and debris from a piece of land</li>
-      <li>Tree transplanting – the relocation of a tree from one place to another using proper techniques and equipment</li>
-      <li>Tree chipping – the conversion of large pieces of wood into smaller woodchips using a wood chipper</li>
-      <li>Firewood – the provision of quality and seasoned firewood for your fireplace or stove</li>
-      <li>And more…</li>
-    </ul>
-    <h1>Contact Us</h1>
-    <p>
-      If you are looking for a professional and reliable tree felling company,
-      look no further than [Your Company Name]. We are ready to assist you with any tree-related service you may need.
-      Contact us today to get a free quote or to schedule an appointment.
-      You can reach us by phone, email, or through our online form. We look forward to hearing from you and working with you.  
-    </p>
-    <p>Phone: [XXXXXXXX]</p>
-    <p>Email: [XXXXXXXX]</p>
-    <p>Online Form: [XXXXXXXX]</p>
-    <v-btn size="x-large" rounded="xl" class="getQuoteButton">Get a free Quote</v-btn>
-
   </div>
 </template>
 
@@ -113,11 +85,13 @@ import SlideShow from './components/SlideShow.vue';
     color: #ffffff;
   }
 
-  v-container v-row v-col v-sheet{
+  v-container, v-row, v-col, v-sheet{
     color: rgb(67, 66, 21);
     background-color: rgb(86, 229, 15);
     padding: -10px;
-    margin:-10px
+    margin:-10px;
+    background-color: black;
+
   }
 
   h1{
@@ -139,5 +113,10 @@ import SlideShow from './components/SlideShow.vue';
   }
   .getQuoteButton{
     margin: 30px;
+  }
+  v-sheet, v-img{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
   }
 </style>
