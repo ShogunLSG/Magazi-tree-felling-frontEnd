@@ -1,8 +1,13 @@
 <script setup>
-import { RouterView } from 'vue-router'
+// import { RouterView } from 'vue-router'
+// import { onBeforeMount } from 'vue';
+// onBeforeMount(() => {
+//   console.log(`the component is now mounted.`)
+// })
 </script>
 <template>
-  <div class="Wrapper">
+  <h1>Hello World</h1>
+  <!-- <div class="Wrapper">
         <nav>
       <div class="tool-bar">
         <v-toolbar :elevation="8" title="Magazi Tree Felling" class="tool-bar-content">
@@ -56,13 +61,13 @@ import { RouterView } from 'vue-router'
       <RouterView />
     </div>
     <div class="services">
-      <!-- Was for Services -->
+      Was for Services
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
-  .Wrapper {
+  /* .Wrapper {
     background-color: rgb(36, 67, 21);
     display: block;
     height: 100vh;
@@ -118,5 +123,5 @@ import { RouterView } from 'vue-router'
     margin: 0px;
     padding: 0px;
     background-color: black;
-  }
+  } */
 </style>

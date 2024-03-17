@@ -1,18 +1,23 @@
 <script setup>
 // import FormComponent from '@/components/FormComponent.vue'
+// export default {
+//   mounted() {
+//     console.log(`the quote view is now mounted.`)
+//   }
+// }
 </script>
 
 <template>
   <div class="Wrapper">
     <h1>Get Your free Quote</h1>
-    <v-container>
+    <!-- <v-container>
       <h1>Noice !!!</h1>
-    </v-container>
+    </v-container> -->
   </div>
 </template>
 
 <style scoped>
-  .Wrapper {
+  /* .Wrapper {
     background-color: rgb(36, 67, 21);
     display: block;
     height: 100vh;
@@ -68,5 +73,5 @@
     margin: 0px;
     padding: 0px;
     background-color: black;
-  }
+  } */
 </style>

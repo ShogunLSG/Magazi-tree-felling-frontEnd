@@ -1,12 +1,17 @@
 <script setup>
-import SlideShow from './SlideShow.vue';
+// import SlideShow from './SlideShow.vue';
 // import FormComponent from './FormComponent.vue'
 
+// export default {
+//   mounted() {
+//     console.log(`HomeView is now mounted.`)
+//   }
+// }
 </script>
 
 <template>
-  <div class="Wrapper">
-    <SlideShow />
+  <!-- <div class="Wrapper">
+     <SlideShow />
     <div class="content">
       <h1>Welcome to Magazi tree felling</h1>
     
@@ -87,11 +92,11 @@ import SlideShow from './SlideShow.vue';
     <p>Online Form: [XXXXXXXX]</p>
     <v-btn size="x-large" rounded="xl" class="getQuoteButton">
     </v-btn>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
-  .Wrapper {
+  /* .Wrapper {
     background-color: rgb(36, 67, 21);
     display: block;
     height: 100vh;
@@ -147,5 +152,5 @@ import SlideShow from './SlideShow.vue';
     margin: 0px;
     padding: 0px;
     background-color: black;
-  }
+  } */
 </style>

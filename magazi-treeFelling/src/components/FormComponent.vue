@@ -1,8 +1,16 @@
 <script>
+// import { onMounted,onBeforeMount } from 'vue';
+// onBeforeMount(() => {
+//   console.log(`the component is now mounted.`)
+// })
+
+// onMounted(() => {
+//   console.log(`the component is now mounted.`)
+// })
 </script>
 
 <template>
-  <div class="form-component">
+  <!-- <div class="form-component">
     <form @submit.prevent="submit">
       <v-text-field
         v-model="name.value.value"
@@ -50,5 +58,5 @@
         clear
       </v-btn>
     </form>
-  </div>
+  </div> -->
 </template>

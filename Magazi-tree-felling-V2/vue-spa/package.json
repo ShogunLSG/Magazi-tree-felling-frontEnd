@@ -1,0 +1,32 @@
+{
+  "name": "magazi-tree-felling",
+  "description": "Magazi tree felling website for requesting quoutes",
+  "version": "1.0.0",
+  "author": "Malema Jan Lesego Matsimela <90190215+ShogunLSG@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "webpack": "^4.1.0",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vuetify": "^3.5.8"
+  }
+}
