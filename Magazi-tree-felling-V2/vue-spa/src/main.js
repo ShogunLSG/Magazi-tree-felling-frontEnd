@@ -1,5 +1,7 @@
 import App from './App.vue'
-import {Vuetify } from 'vuetify'
+import * as Vuetify from 'vuetify'
+import { createApp } from "vue";
+
 
 // new Vue({
 //   el: '#app',

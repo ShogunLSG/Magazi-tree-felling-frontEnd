@@ -7,7 +7,7 @@
 </script>
 <template>
   <h1>Hello World</h1>
-  <!-- <div class="Wrapper">
+  <div class="Wrapper">
         <nav>
       <div class="tool-bar">
         <v-toolbar :elevation="8" title="Magazi Tree Felling" class="tool-bar-content">
@@ -63,7 +63,7 @@
     <div class="services">
       Was for Services
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

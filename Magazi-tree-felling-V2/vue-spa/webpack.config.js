@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
   entry: './src/main.js',
@@ -16,19 +17,20 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      },      
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          presets:[
+            ['@babel/preset-env', { modules: false }]
+          ]
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -39,21 +41,26 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.vue' ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    },
-    extensions: ['*', '.js', '.vue', '.json']
+        'vue': '@vue/runtime-dom'
+    }
   },
+
   devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    headers: {
+      'Content-Security-Policy': "default-src * 'unsafe-inline' 'unsafe-eval'"
+    }
   },
+  
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: 'eval-cheap-module-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
