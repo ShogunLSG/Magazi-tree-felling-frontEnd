@@ -13,63 +13,64 @@ export default {
 };
 </script>
 <template>
-  <h1>Hello World</h1>
-  <div class="Wrapper">
-    <nav>
-      <div class="tool-bar">
-        <v-toolbar
-          :elevation="8"
-          title="Magazi Tree Felling"
-          class="tool-bar-content"
-        >
-          <div class="d-flex justify-space-around">
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props"> Locations </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(item, index) in items"
-                  :key="index"
-                  :value="index"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+  <v-app>
+    <div class="Wrapper">
+      <nav>
+        <div class="tool-bar">
+          <v-toolbar
+            :elevation="8"
+            title="Magazi Tree Felling"
+            class="tool-bar-content"
+          >
+            <div class="d-flex justify-space-around">
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn color="primary" v-bind="props"> Locations </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :value="index"
+                  >
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
 
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props"> Services </v-btn>
+              <v-menu>
+                <template v-slot:activator="{ props }">
+                  <v-btn color="primary" v-bind="props"> Services </v-btn>
 
-                <v-btn
-                  class="getQuoute"
-                  rounded="xl"
-                  varient="tonal"
-                  append-icon="$vuetify"
-                >
-                  <router-link to="/quote">Get Quote</router-link>
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(item, index) in items"
-                  :key="index"
-                  :value="index"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </div>
-        </v-toolbar>
+                  <v-btn
+                    class="getQuoute"
+                    rounded="xl"
+                    varient="tonal"
+                    append-icon="$vuetify"
+                  >
+                    <RouterLink to="/quote">Get Quote</RouterLink>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :value="index"
+                  >
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </div>
+          </v-toolbar>
+        </div>
+      </nav>
+      <div class="content">
+        <RouterView />
       </div>
-    </nav>
-    <div class="content">
-      <router-view />
+      <div class="services">Was for Services</div>
     </div>
-    <div class="services">Was for Services</div>
-  </div>
+  </v-app>
 </template>
 
 <style>
