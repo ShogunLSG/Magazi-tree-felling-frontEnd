@@ -1,65 +1,37 @@
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        { title: "Menu Item 1" },
-        { title: "Menu Item 2" },
-        { title: "Menu Item 3" },
-        // Add more menu items as needed
-      ],
-    };
-  },
-};
-</script>
+<script></script>
 <template>
   <v-app>
     <nav>
       <div class="tool-bar">
         <v-toolbar
           :elevation="8"
-          title="Magazi Tree Felling"
           class="tool-bar-content"
+          title="Magazi Tree Felling"
         >
+          <RouterLink to="/">
+            <div class="logo">
+              <img src="../src/assets/logo.png" alt="Tree Felling Logo" />
+            </div>
+            <h2>Magazi Tree Felling</h2>
+          </RouterLink>
+
           <div class="d-flex justify-space-around">
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props"> Locations </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(item, index) in items"
-                  :key="index"
-                  :value="index"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+            <v-btn color="primary">
+              <RouterLink to="/location">Locations</RouterLink>
+            </v-btn>
 
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn color="primary" v-bind="props"> Services </v-btn>
+            <v-btn color="primary">
+              <RouterLink to="/services">Services</RouterLink>
+            </v-btn>
 
-                <v-btn
-                  class="getQuoute"
-                  rounded="xl"
-                  varient="tonal"
-                  append-icon="$vuetify"
-                >
-                  <RouterLink to="/quote">Get Quote</RouterLink>
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(item, index) in items"
-                  :key="index"
-                  :value="index"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+            <v-btn
+              class="getQuoute"
+              rounded="xl"
+              varient="tonal"
+              append-icon="$vuetify"
+            >
+              <RouterLink to="/quote">Get Quote</RouterLink>
+            </v-btn>
           </div>
         </v-toolbar>
       </div>
@@ -67,6 +39,15 @@ export default {
     <div class="content">
       <RouterView />
     </div>
+    <footer>
+      <v-footer class="bg-grey-lighten-1">
+        <v-row justify="center" no-gutters>
+          <v-col class="text-center mt-4" cols="12">
+            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          </v-col>
+        </v-row>
+      </v-footer>
+    </footer>
   </v-app>
 </template>
 
@@ -81,6 +62,10 @@ export default {
 }
 #content {
   margin: auto;
+}
+
+#tool-bar {
+  margin: 0%;
 }
 
 v-app {
@@ -98,5 +83,11 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
 }
 </style>

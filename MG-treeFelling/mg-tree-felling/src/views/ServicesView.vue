@@ -4,7 +4,7 @@ export default {};
 
 <template lang="">
   <div>
-    <h1>Hola but in locations</h1>
+    <h1>Hola</h1>
   </div>
 </template>
 

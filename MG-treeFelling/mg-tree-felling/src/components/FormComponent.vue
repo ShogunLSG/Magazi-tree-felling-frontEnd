@@ -53,9 +53,9 @@ export default {
   <div class="form-component">
     <form @submit.prevent="submit">
       <v-text-field
-        v-model="name.value.value"
+        v-model="name.value"
         :counter="10"
-        :error-messages="name.errorMessage.value"
+        :error-messages="name.errorMessage"
         label="Name"
       ></v-text-field>
 
