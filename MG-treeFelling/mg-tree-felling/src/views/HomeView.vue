@@ -3,9 +3,10 @@ import SlideShow from "@/components/SlideShow.vue";
 </script>
 
 <template>
-  <h1>Home View Works</h1>
   <div class="Wrapper">
-    <SlideShow />
+    <div class="slide-show">
+      <SlideShow />
+    </div>
     <div class="content">
       <h1>Welcome to Magazi tree felling</h1>
 
@@ -147,14 +148,19 @@ import SlideShow from "@/components/SlideShow.vue";
 </template>
 
 <style scoped>
+.slide-show {
+  width: 100%;
+  height: 700px;
+}
+
 .Wrapper {
   background-color: rgb(36, 67, 21);
   display: block;
   height: 100vh;
-  width: 100vh;
+  width: 100%;
   height: max-content;
   text-align: center;
-  margin: auto;
+  overflow: hidden;
 }
 
 MenuToolBar {

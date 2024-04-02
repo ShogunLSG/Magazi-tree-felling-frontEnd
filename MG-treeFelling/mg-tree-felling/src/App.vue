@@ -5,29 +5,35 @@
       <div class="tool-bar">
         <v-toolbar
           :elevation="8"
-          class="tool-bar-content"
-          title="Magazi Tree Felling"
+          class="tool-bar-content bg-black white--text"
+          height="150"
         >
-          <RouterLink to="/">
-            <div class="logo">
+          <div class="d-flex align-center mx-4">
+            <div class="logo mr-3">
               <img src="../src/assets/logo.png" alt="Tree Felling Logo" />
             </div>
-            <h2>Magazi Tree Felling</h2>
-          </RouterLink>
+            <v-toolbar-title class="text-h5"
+              >Magazi Tree Felling</v-toolbar-title
+            >
+          </div>
 
-          <div class="d-flex justify-space-around">
-            <v-btn color="primary">
+          <v-spacer></v-spacer>
+
+          <div class="d-flex justify-space-around mx-4">
+            <v-btn color="primary" class="mx-2 text-h6">
+              <RouterLink to="/">Home</RouterLink>
+            </v-btn>
+            <v-btn color="white" class="mx-2 text-h6 text--white">
               <RouterLink to="/location">Locations</RouterLink>
             </v-btn>
-
-            <v-btn color="primary">
+            <v-btn color="white" class="mx-2 text-h6 text-white">
               <RouterLink to="/services">Services</RouterLink>
             </v-btn>
-
             <v-btn
-              class="getQuoute"
+              class="getQuote mx-2 text-h6 text-black"
+              color="green"
               rounded="xl"
-              varient="tonal"
+              variant="tonal"
               append-icon="$vuetify"
             >
               <RouterLink to="/quote">Get Quote</RouterLink>
@@ -60,20 +66,9 @@
   color: #2c3e50;
   align-content: center;
 }
-#content {
-  margin: auto;
-}
-
-#tool-bar {
-  margin: 0%;
-}
 
 v-app {
   align-content: center;
-}
-
-nav {
-  padding: 30px;
 }
 
 nav a {
