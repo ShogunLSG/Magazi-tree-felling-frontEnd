@@ -1,4 +1,13 @@
-<script></script>
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["toggleSidebar"]),
+  },
+};
+</script>
+
 <template>
   <v-app>
     <nav>
@@ -15,14 +24,12 @@
             <div class="logo mr-3">
               <img src="../src/assets/logo.png" alt="Tree Felling Logo" />
             </div>
-            <v-toolbar-title class="text-h5"
+            <v-toolbar-title class="text-h5 animated fadeInLeft"
               >Magazi Tree Felling</v-toolbar-title
             >
           </div>
-
           <v-spacer></v-spacer>
-
-          <div class="d-flex justify-space-around mx-4">
+          <div class="d-flex justify-space-around mx-4 animated fadeInRight">
             <v-btn color="primary" class="mx-2 text-h6">
               <RouterLink to="/">Home</RouterLink>
             </v-btn>
@@ -77,6 +84,7 @@ v-app {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  transition: all 0.3s ease;
 }
 
 nav a.router-link-exact-active {
@@ -87,5 +95,41 @@ img {
   width: auto;
   height: auto;
   object-fit: cover;
+}
+
+/* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
 }
 </style>

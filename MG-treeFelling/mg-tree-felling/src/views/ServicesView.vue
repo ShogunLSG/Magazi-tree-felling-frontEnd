@@ -51,35 +51,91 @@ export default {
 </script>
 
 <template>
-  <v-card color="basil">
-    <v-card-title class="text-center justify-center py-6">
-      <h1 class="font-weight-bold text-h2 text-basil">Tree Felling Services</h1>
-    </v-card-title>
-    <v-tabs v-model="tab" bg-color="transparent" color="basil" grow>
-      <v-tab v-for="item in items" :key="item" :value="item">
-        {{ item }}
-      </v-tab>
-    </v-tabs>
-    <v-window v-model="tab">
-      <v-window-item v-for="item in items" :key="item" :value="item">
-        <v-card color="basil" flat>
-          <v-card-text>{{ tabContent[item].text }}</v-card-text>
-          <v-table>
-            <thead>
-              <tr>
-                <th>Service</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(row, index) in tabContent[item].table" :key="index">
-                <td>{{ row.service }}</td>
-                <td>{{ row.price }}</td>
-              </tr>
-            </tbody>
-          </v-table>
-        </v-card>
-      </v-window-item>
-    </v-window>
-  </v-card>
+  <div class="services-wrapper">
+    <v-card color="basil" flat>
+      <v-card-title class="text-center justify-center py-6">
+        <h1 class="font-weight-bold text-h2 text-basil">
+          Tree Felling Services
+        </h1>
+      </v-card-title>
+      <v-tabs v-model="tab" bg-color="transparent" color="basil" grow>
+        <v-tab v-for="item in items" :key="item" :value="item">
+          {{ item }}
+        </v-tab>
+      </v-tabs>
+      <v-window v-model="tab">
+        <v-window-item v-for="item in items" :key="item" :value="item">
+          <v-card color="basil" flat>
+            <v-card-text class="service-description">{{
+              tabContent[item].text
+            }}</v-card-text>
+            <v-table>
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(row, index) in tabContent[item].table" :key="index">
+                  <td>{{ row.service }}</td>
+                  <td>{{ row.price }}</td>
+                </tr>
+              </tbody>
+            </v-table>
+          </v-card>
+        </v-window-item>
+      </v-window>
+    </v-card>
+  </div>
 </template>
+
+<style scoped>
+.services-wrapper {
+  background-color: rgb(36, 67, 21);
+  padding: 40px 0;
+}
+
+.v-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.v-card-title {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.v-tabs {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.v-window {
+  background-color: #ffffff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.service-description {
+  padding: 20px;
+  text-align: justify;
+}
+
+.v-table {
+  margin: 20px;
+}
+
+.v-table thead {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.v-table th,
+.v-table td {
+  padding: 10px;
+}
+
+.v-table th {
+  font-weight: bold;
+}
+</style>
