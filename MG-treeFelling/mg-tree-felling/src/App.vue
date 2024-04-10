@@ -4,6 +4,9 @@
     <nav>
       <div class="tool-bar">
         <v-toolbar
+          dense
+          prominent
+          extended
           :elevation="8"
           class="tool-bar-content bg-black white--text"
           height="150"
@@ -46,7 +49,7 @@
       <RouterView />
     </div>
     <footer>
-      <v-footer class="bg-grey-lighten-1">
+      <v-footer color="dark-green">
         <v-row justify="center" no-gutters>
           <v-col class="text-center mt-4" cols="12">
             {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
