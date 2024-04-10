@@ -8,16 +8,18 @@ import SlideShow from "@/components/SlideShow.vue";
       <SlideShow />
     </div>
     <div class="content">
-      <h1>Welcome to Magazi tree felling</h1>
-
+      <h1>Welcome to Magazi Tree Felling</h1>
       <v-container>
         <v-row no-gutters>
-          <v-col order="12">
+          <v-col cols="12" md="6">
             <v-sheet class="pa-2 ma-2">
-              <img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" />
+              <img
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                alt="Tree Felling"
+              />
             </v-sheet>
           </v-col>
-          <v-col order="1">
+          <v-col cols="12" md="6">
             <v-sheet class="pa-2 ma-2">
               <p>
                 Magazi Tree Felling is a professional and reliable tree felling
@@ -38,7 +40,7 @@ import SlideShow from "@/components/SlideShow.vue";
       </v-container>
     </div>
     <div class="services">
-      <h1>Why Choose us?</h1>
+      <h1>Why Choose Us?</h1>
       <ul>
         <li>
           We have over [number] years of experience in the tree felling industry
@@ -66,7 +68,7 @@ import SlideShow from "@/components/SlideShow.vue";
     </div>
     <v-container>
       <v-row no-gutters>
-        <v-col order="6">
+        <v-col cols="12" md="6">
           <v-sheet class="pa-2 ma-2">
             <v-img
               :width="200"
@@ -76,7 +78,7 @@ import SlideShow from "@/components/SlideShow.vue";
             ></v-img>
           </v-sheet>
         </v-col>
-        <v-col order="12">
+        <v-col cols="12" md="6">
           <v-sheet class="pa-2 ma-2">
             <v-img
               :width="200"
@@ -86,7 +88,7 @@ import SlideShow from "@/components/SlideShow.vue";
             ></v-img>
           </v-sheet>
         </v-col>
-        <v-col order="1">
+        <v-col cols="12" md="6">
           <v-sheet class="pa-2 ma-2">
             <v-img
               :width="200"
@@ -99,7 +101,7 @@ import SlideShow from "@/components/SlideShow.vue";
       </v-row>
     </v-container>
     <h1>Our Services</h1>
-    <p>We offer the following services forour clients:</p>
+    <p>We offer the following services for our clients:</p>
     <ul>
       <li>
         Tree felling – the process of bringing down a tree safely and
@@ -142,8 +144,9 @@ import SlideShow from "@/components/SlideShow.vue";
     </p>
     <p>Phone: [XXXXXXXX]</p>
     <p>Email: [XXXXXXXX]</p>
-    <p>Online Form: [XXXXXXXX]</p>
-    <v-btn size="x-large" rounded="xl" class="getQuoteButton"> </v-btn>
+    <v-btn size="x-large" rounded="xl" class="getQuoteButton"
+      >Get a Quote</v-btn
+    >
   </div>
 </template>
 
@@ -175,6 +178,11 @@ MenuToolBar {
   padding: 0px;
   margin: -10px;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 v-container,
@@ -195,9 +203,36 @@ h1 {
 }
 
 img {
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: -10px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.getQuoteButton {
+  background-color: #17e51e;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.getQuoteButton:hover {
+  background-color: #146d33;
 }
 
 ul,
@@ -206,6 +241,13 @@ p {
   margin: 30px;
   color: #ffffff;
 }
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
 .getQuoteButton {
   margin: 30px;
 }
@@ -214,5 +256,14 @@ v-img {
   margin: 0px;
   padding: 0px;
   background-color: black;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(36, 67, 21);
 }
 </style>
