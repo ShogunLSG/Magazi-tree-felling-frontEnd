@@ -1,7 +1,13 @@
 <script>
+import QuoteService from "../services/QuoteService";
+
 export default {
   data() {
     return {
+      address: {
+        value: "",
+        errorMessage: "",
+      },
       name: {
         value: "",
         errorMessage: "",
@@ -23,7 +29,11 @@ export default {
         errorMessage: "",
       },
       items: [
-        // Populate this array with your items for the v-select
+        "Tree Removal",
+        "Stump Grinding",
+        "Brush Clearing",
+        "Emergency Services",
+        "Tree Prunning/Trimming",
       ],
     };
   },
@@ -35,6 +45,8 @@ export default {
       // Logic to reset the form
       this.name.value = "";
       this.name.errorMessage = "";
+      this.address.value = "";
+      this.address.errorMessage = "";
       this.phone.value = "";
       this.phone.errorMessage = "";
       this.email.value = "";
@@ -44,12 +56,23 @@ export default {
       this.checkbox.value = false;
       this.checkbox.errorMessage = "";
     },
+    requestQuote() {
+      let quoteRequest = {
+        address: this.address.value,
+        service: this.select.value,
+        contactDetails: this.phone.value,
+        names: this.name.value,
+      };
+      console.log("Address:" + this.address.value);
+      QuoteService.sendRequest(quoteRequest).then(function (response) {
+        console.log("API call made!" + response);
+      });
+    },
   },
 };
 </script>
 
 <template>
-  <h1>Form Component Works</h1>
   <div class="form-component">
     <form @submit.prevent="submit">
       <v-text-field
@@ -76,18 +99,19 @@ export default {
         v-model="select.value"
         :items="items"
         :error-messages="select.errorMessage"
-        label="Select"
+        label="Select Service"
       ></v-select>
-
-      <v-checkbox
-        v-model="checkbox.value"
-        :error-messages="checkbox.errorMessage"
-        value="1"
-        label="Option"
-        type="checkbox"
-      ></v-checkbox>
-
-      <v-btn class="me-4" type="submit"> submit </v-btn>
+      <v-row>
+        <v-textarea
+          v-model="address.value"
+          color="deep-purple"
+          label="Address"
+          rows="1"
+          variant="filled"
+          auto-grow
+        ></v-textarea>
+      </v-row>
+      <v-btn class="me-4" type="submit" @click="requestQuote"> submit </v-btn>
 
       <v-btn v-on:click="handleReset"> clear </v-btn>
     </form>

@@ -76,33 +76,27 @@ export default {
   color: #2c3e50;
   align-content: center;
 }
-
 v-app {
   align-content: center;
 }
-
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff; /* Change the color to white */
   transition: all 0.3s ease;
 }
-
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #42b983; /* Keep the active link color as is */
 }
-
 img {
   width: auto;
   height: auto;
   object-fit: cover;
 }
-
 /* Animations */
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
-
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -113,11 +107,9 @@ img {
     transform: translateX(0);
   }
 }
-
 .fadeInLeft {
   animation-name: fadeInLeft;
 }
-
 @keyframes fadeInRight {
   from {
     opacity: 0;
@@ -128,7 +120,6 @@ img {
     transform: translateX(0);
   }
 }
-
 .fadeInRight {
   animation-name: fadeInRight;
 }
