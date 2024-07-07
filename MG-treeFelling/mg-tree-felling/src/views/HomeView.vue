@@ -1,5 +1,8 @@
 <script setup>
 import SlideShow from "@/components/SlideShow.vue";
+import AnimatedSection from "@/components/AnimatedSection.vue";
+// Doesnt Work yet!! ***TODO***
+import ParallaxSection from "@/components/ParallaxSection.vue";
 </script>
 
 <template>
@@ -7,123 +10,94 @@ import SlideShow from "@/components/SlideShow.vue";
     <div class="slide-show">
       <SlideShow />
     </div>
-    <div class="content-section">
-      <h1>Welcome to Magazi Tree Felling</h1>
-      <v-container>
-        <v-row no-gutters>
-          <v-col cols="12" md="6">
-            <v-sheet class="pa-2 ma-2 image-container">
-              <img
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                alt="Tree Felling"
-              />
-            </v-sheet>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-sheet class="pa-2 ma-2 text-container">
-              <p>
-                Magazi Tree Felling is a professional and reliable tree felling
-                company that offers a range of services for residential and
-                commercial properties. Whether you need tree removal, pruning,
-                trimming, stump grinding, site clearing, or any other
-                tree-related service, we have the skills, equipment, and
-                experience to handle it. We follow the highest standards of
-                safety and quality. We are passionate about trees and the
-                environment, and we strive to preserve and enhance the beauty
-                and health of your trees. We also offer advice on tree care and
-                maintenance, and we can help you with any tree-related issues or
-                problems.
-              </p>
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
-    <div class="content-section services-section">
+
+    <ParallaxSection>
+      <template #background>
+        <img
+          src="../assets/TreeBackground.jpg"
+          alt="Tree background"
+          class="parallax-bg-image"
+        />
+      </template>
+      <AnimatedSection class="content-section">
+        <h1>Welcome to Magazi Tree Felling</h1>
+        <v-container>
+          <v-row no-gutters>
+            <v-col cols="12" md="6">
+              <v-sheet class="pa-2 ma-2 image-container">
+                <img
+                  src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                  alt="Tree Felling"
+                />
+              </v-sheet>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-sheet class="pa-2 ma-2 text-container">
+                <p>
+                  Magazi Tree Felling is a professional and reliable tree
+                  felling company that offers a range of services for
+                  residential and commercial properties. Whether you need tree
+                  removal, pruning, trimming, stump grinding, site clearing, or
+                  any other tree-related service, we have the skills, equipment,
+                  and experience to handle it. We follow the highest standards
+                  of safety and quality. We are passionate about trees and the
+                  environment, and we strive to preserve and enhance the beauty
+                  and health of your trees. We also offer advice on tree care
+                  and maintenance, and we can help you with any tree-related
+                  issues or problems.
+                </p>
+              </v-sheet>
+            </v-col>
+          </v-row>
+        </v-container>
+      </AnimatedSection>
+    </ParallaxSection>
+    <AnimatedSection class="content-section services-section">
       <h1>Why Choose Us?</h1>
       <v-container>
         <v-row>
           <v-col>
             <v-sheet class="pa-4 text-container">
-              <ul>
-                <li>
-                  We have over [number] years of experience in the tree felling
-                  industry
+              <ul class="feature-list">
+                <li
+                  v-for="(feature, index) in features"
+                  :key="index"
+                  class="feature-item"
+                >
+                  {{ feature }}
                 </li>
-                <li>
-                  We offer a wide range of services for all your tree needs
-                </li>
-                <li>
-                  We have a team of qualified and skilled arborists who can
-                  handle any challenge
-                </li>
-                <li>
-                  We use the latest equipment and technology to ensure
-                  efficiency and safety
-                </li>
-                <li>
-                  We are fully insured and certified, and we comply with all the
-                  relevant regulations and standards
-                </li>
-                <li>We offer competitive prices and free quotes</li>
-                <li>
-                  We have a loyal and satisfied customer base, and we have many
-                  positive reviews and testimonials
-                </li>
-                <li>We are available 24/7 for emergencies and consultations</li>
               </ul>
             </v-sheet>
           </v-col>
         </v-row>
       </v-container>
-    </div>
-    <div class="content-section gallery-section">
+    </AnimatedSection>
+    <AnimatedSection class="content-section gallery-section">
       <h1>Our Work</h1>
-    </div>
-    <div class="content-section services-list-section">
+    </AnimatedSection>
+    <AnimatedSection class="content-section services-list-section">
       <h1>Our Services</h1>
       <v-container>
         <v-row>
           <v-col cols="12" md="8" class="mx-auto">
             <v-sheet class="pa-4 text-container">
               <p>We offer the following services for our clients:</p>
-              <ul>
-                <li>
-                  Tree felling – the process of bringing down a tree safely and
-                  efficiently
+              <ul class="services-list">
+                <li
+                  v-for="(service, index) in services"
+                  :key="index"
+                  class="service-item"
+                >
+                  <h3>{{ service.title }}</h3>
+                  <p>{{ service.description }}</p>
                 </li>
-                <li>
-                  Tree pruning and trimming – the removal of dead, diseased, or
-                  unwanted branches to improve the shape and health of the tree
-                </li>
-                <li>
-                  Stump grinding and removal – the elimination of the remaining
-                  tree stump and roots using a specialized machine
-                </li>
-                <li>
-                  Site clearing – the removal of vegetation, rubble, and debris
-                  from a piece of land
-                </li>
-                <li>
-                  Tree transplanting – the relocation of a tree from one place
-                  to another using proper techniques and equipment
-                </li>
-                <li>
-                  Tree chipping – the conversion of large pieces of wood into
-                  smaller woodchips using a wood chipper
-                </li>
-                <li>
-                  Firewood – the provision of quality and seasoned firewood for
-                  your fireplace or stove
-                </li>
-                <li>And more…</li>
               </ul>
             </v-sheet>
           </v-col>
         </v-row>
       </v-container>
-    </div>
-    <div class="content-section contact-section">
+    </AnimatedSection>
+    <AnimatedSection class="content-section contact-section">
       <h1>Contact Us</h1>
       <v-container>
         <v-row>
@@ -164,7 +138,7 @@ import SlideShow from "@/components/SlideShow.vue";
           </v-col>
         </v-row>
       </v-container>
-    </div>
+    </AnimatedSection>
   </div>
 </template>
 
@@ -172,6 +146,53 @@ import SlideShow from "@/components/SlideShow.vue";
 export default {
   data() {
     return {
+      services: [
+        {
+          title: "Tree felling",
+          description:
+            "The process of bringing down a tree safely and efficiently",
+        },
+        {
+          title: "Tree pruning and trimming",
+          description:
+            "The removal of dead, diseased, or unwanted branches to improve the shape and health of the tree",
+        },
+        {
+          title: "Stump grinding and removal",
+          description:
+            "The elimination of the remaining tree stump and roots using a specialized machine",
+        },
+        {
+          title: "Site clearing",
+          description:
+            "The removal of vegetation, rubble, and debris from a piece of land",
+        },
+        {
+          title: "Tree transplanting",
+          description:
+            "The relocation of a tree from one place to another using proper techniques and equipment",
+        },
+        {
+          title: "Tree chipping",
+          description:
+            "The conversion of large pieces of wood into smaller woodchips using a wood chipper",
+        },
+        {
+          title: "Firewood",
+          description:
+            "The provision of quality and seasoned firewood for your fireplace or stove",
+        },
+      ],
+      features: [
+        "We have over [number] years of experience in the tree felling industry",
+        "We offer a wide range of services for all your tree needs",
+        "We have a team of qualified and skilled arborists who can handle any challenge",
+        "We use the latest equipment and technology to ensure efficiency and safety",
+        "We are fully insured and certified, and we comply with all the relevant regulations and standards",
+        "We offer competitive prices and free quotes",
+        "We have a loyal and satisfied customer base, and we have many positive reviews and testimonials",
+        "We are available 24/7 for emergencies and consultations",
+      ],
       images: [
         {
           src: "https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
@@ -188,9 +209,56 @@ export default {
 };
 </script>
 <style scoped>
+.services-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.service-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.service-item p {
+  color: #e0e0e0;
+}
+
 .slide-show {
   width: 100%;
   height: 700px;
+}
+
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.feature-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .v-sheet,
@@ -314,5 +382,11 @@ img {
 
 .quote-button {
   margin-top: 20px;
+}
+
+.parallax-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
