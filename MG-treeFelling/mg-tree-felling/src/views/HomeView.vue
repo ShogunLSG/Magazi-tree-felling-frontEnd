@@ -1,6 +1,8 @@
 <script setup>
 import SlideShow from "@/components/SlideShow.vue";
 import AnimatedSection from "@/components/AnimatedSection.vue";
+import InteractiveTreeServices from "@/components/InteractiveTreeServices.vue";
+import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
 // Doesnt Work yet!! ***TODO***
 import ParallaxSection from "@/components/ParallaxSection.vue";
 </script>
@@ -79,9 +81,12 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
       <h1>Our Services</h1>
       <v-container>
         <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
+          <v-col cols="12" md="6">
+            <InteractiveTreeServices />
+          </v-col>
+          <v-col cols="12" md="6">
             <v-sheet class="pa-4 text-container">
-              <p>We offer the following services for our clients:</p>
+              <p>Explore our services by clicking on the tree branches:</p>
               <ul class="services-list">
                 <li
                   v-for="(service, index) in services"
@@ -96,6 +101,10 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
           </v-col>
         </v-row>
       </v-container>
+    </AnimatedSection>
+    <AnimatedSection class="content-section testimonial-section">
+      <h1>What Our Clients Say</h1>
+      <TestimonialCarousel />
     </AnimatedSection>
     <AnimatedSection class="content-section contact-section">
       <h1>Contact Us</h1>
@@ -388,5 +397,10 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.testimonial-section {
+  background-color: rgb(29, 53, 17);
+  padding: 40px 0;
 }
 </style>
