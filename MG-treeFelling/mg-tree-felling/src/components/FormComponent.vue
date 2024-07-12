@@ -37,6 +37,12 @@ export default {
       ],
     };
   },
+  mounted() {
+    // If a service was pre-selected (passed from the parent), update the select field
+    if (this.$attrs.preSelectedService) {
+      this.select.value = this.$attrs.preSelectedService;
+    }
+  },
   methods: {
     submit() {
       // Your form submission logic here

@@ -1,8 +1,22 @@
 <script setup>
 import FormComponent from "@/components/FormComponent.vue";
 import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 const quoteFormRef = ref(null);
+const formComponentRef = ref(null);
+const route = useRoute();
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+
+  // Check if a service was passed in the URL
+  const service = route.query.service;
+  if (service && formComponentRef.value) {
+    // Pre-select the service in the form
+    formComponentRef.value.select.value = service;
+  }
+});
 
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
@@ -25,17 +39,13 @@ const handleScroll = () => {
     }
   }
 };
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
 </script>
 
 <template>
   <div class="container">
     <div class="quote-form" ref="quoteFormRef">
       <h1 class="form-title">Get Your Free Quote</h1>
-      <FormComponent />
+      <FormComponent ref="formComponentRef" />
     </div>
   </div>
 </template>
