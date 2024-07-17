@@ -3,7 +3,6 @@ import SlideShow from "@/components/SlideShow.vue";
 import AnimatedSection from "@/components/AnimatedSection.vue";
 import InteractiveTreeServices from "@/components/InteractiveTreeServices.vue";
 import TestimonialCarousel from "@/components/TestimonialCarousel.vue";
-// Doesnt Work yet!! ***TODO***
 import ParallaxSection from "@/components/ParallaxSection.vue";
 </script>
 
@@ -11,6 +10,12 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
   <div class="Wrapper">
     <div class="slide-show">
       <SlideShow />
+    </div>
+
+    <div class="nationwide-banner">
+      <v-alert type="info" prominent>
+        Now serving customers nationwide!
+      </v-alert>
     </div>
 
     <ParallaxSection>
@@ -23,6 +28,7 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
       </template>
       <AnimatedSection class="content-section">
         <h1>Welcome to Magazi Tree Felling</h1>
+        <h2 class="subtitle">Serving customers nationwide</h2>
         <v-container>
           <v-row no-gutters>
             <v-col cols="12" md="6">
@@ -38,15 +44,16 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
                 <p>
                   Magazi Tree Felling is a professional and reliable tree
                   felling company that offers a range of services for
-                  residential and commercial properties. Whether you need tree
-                  removal, pruning, trimming, stump grinding, site clearing, or
-                  any other tree-related service, we have the skills, equipment,
-                  and experience to handle it. We follow the highest standards
-                  of safety and quality. We are passionate about trees and the
-                  environment, and we strive to preserve and enhance the beauty
-                  and health of your trees. We also offer advice on tree care
-                  and maintenance, and we can help you with any tree-related
-                  issues or problems.
+                  residential and commercial properties across the entire
+                  country. Whether you need tree removal, pruning, trimming,
+                  stump grinding, site clearing, or any other tree-related
+                  service, we have the skills, equipment, and experience to
+                  handle it, no matter where you're located. We follow the
+                  highest standards of safety and quality. We are passionate
+                  about trees and the environment, and we strive to preserve and
+                  enhance the beauty and health of your trees. We also offer
+                  advice on tree care and maintenance, and we can help you with
+                  any tree-related issues or problems.
                 </p>
               </v-sheet>
             </v-col>
@@ -66,7 +73,8 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
                   :key="index"
                   class="feature-item"
                 >
-                  {{ feature }}
+                  <v-icon v-if="feature.icon" left>{{ feature.icon }}</v-icon>
+                  {{ feature.text }}
                 </li>
               </ul>
             </v-sheet>
@@ -114,8 +122,10 @@ import ParallaxSection from "@/components/ParallaxSection.vue";
             <v-sheet class="pa-4 text-container">
               <p class="contact-text">
                 If you are looking for a professional and reliable tree felling
-                company, look no further than Magazi Tree Felling. We are ready
-                to assist you with any tree-related service you may need.
+                company that can serve you anywhere in the country, look no
+                further than Magazi Tree Felling. We are ready to assist you
+                with any tree-related service you may need, regardless of your
+                location.
               </p>
               <div class="contact-info">
                 <div class="contact-method">
@@ -193,14 +203,42 @@ export default {
         },
       ],
       features: [
-        "We have over [number] years of experience in the tree felling industry",
-        "We offer a wide range of services for all your tree needs",
-        "We have a team of qualified and skilled arborists who can handle any challenge",
-        "We use the latest equipment and technology to ensure efficiency and safety",
-        "We are fully insured and certified, and we comply with all the relevant regulations and standards",
-        "We offer competitive prices and free quotes",
-        "We have a loyal and satisfied customer base, and we have many positive reviews and testimonials",
-        "We are available 24/7 for emergencies and consultations",
+        {
+          icon: "mdi-map-marker-radius",
+          text: "We provide our services nationwide, reaching customers all across the country",
+        },
+        {
+          icon: "mdi-clock-outline",
+          text: "We have over [number] years of experience in the tree felling industry",
+        },
+        {
+          icon: "mdi-tree",
+          text: "We offer a wide range of services for all your tree needs",
+        },
+        {
+          icon: "mdi-account-group",
+          text: "We have a team of qualified and skilled arborists who can handle any challenge",
+        },
+        {
+          icon: "mdi-tools",
+          text: "We use the latest equipment and technology to ensure efficiency and safety",
+        },
+        {
+          icon: "mdi-certificate",
+          text: "We are fully insured and certified, and we comply with all the relevant regulations and standards",
+        },
+        {
+          icon: "mdi-currency-usd",
+          text: "We offer competitive prices and free quotes",
+        },
+        {
+          icon: "mdi-star",
+          text: "We have a loyal and satisfied customer base, and we have many positive reviews and testimonials",
+        },
+        {
+          icon: "mdi-phone",
+          text: "We are available 24/7 for emergencies and consultations",
+        },
       ],
       images: [
         {
@@ -217,6 +255,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .services-list {
   list-style-type: none;
@@ -262,12 +301,18 @@ export default {
   padding: 15px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .feature-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item .v-icon {
+  margin-right: 10px;
 }
 
 .v-sheet,
@@ -402,5 +447,15 @@ img {
 .testimonial-section {
   background-color: rgb(29, 53, 17);
   padding: 40px 0;
+}
+
+.subtitle {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.nationwide-banner {
+  margin-bottom: 20px;
 }
 </style>

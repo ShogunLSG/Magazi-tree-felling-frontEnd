@@ -7,7 +7,7 @@ export default {
       drawer: false,
       navItems: [
         { name: "Home", path: "/" },
-        { name: "Locations", path: "/location" },
+        // { name: "Locations", path: "/location" },
         { name: "Services", path: "/services" },
         { name: "Get Quote", path: "/quote" },
       ],
