@@ -1,28 +1,35 @@
 <template>
-  <div class="interactive-tree">
-    <svg width="300" height="400" viewBox="0 0 300 400">
-      <!-- Tree trunk -->
-      <path
-        d="M150 400 L150 200 Q150 150 120 100 T150 50"
-        fill="none"
-        stroke="#6d4c41"
-        stroke-width="20"
-      />
+  <div class="interactive-tree-container">
+    <div class="tree-svg-container">
+      <svg width="300" height="400" viewBox="0 0 300 400">
+        <!-- Tree trunk -->
+        <path
+          d="M150 400 L150 200 Q150 150 120 100 T150 50"
+          fill="none"
+          stroke="#6d4c41"
+          stroke-width="20"
+        />
 
-      <!-- Tree branches / service nodes -->
-      <template v-for="(service, index) in services" :key="index">
-        <g class="service-node" @click="selectService(index)">
-          <!-- Larger invisible circle for hover area -->
-          <circle :cx="service.x" :cy="service.y" r="30" fill="transparent" />
-          <!-- Visible circle -->
-          <circle :cx="service.x" :cy="service.y" r="20" fill="#4caf50" />
-        </g>
-      </template>
-    </svg>
+        <!-- Tree branches / service nodes -->
+        <template v-for="(service, index) in services" :key="index">
+          <g class="service-node" @click="selectService(index)">
+            <!-- Larger invisible circle for hover area -->
+            <circle :cx="service.x" :cy="service.y" r="30" fill="transparent" />
+            <!-- Visible circle -->
+            <circle :cx="service.x" :cy="service.y" r="20" fill="#4caf50" />
+          </g>
+        </template>
+      </svg>
+    </div>
 
-    <div v-if="selectedService" class="service-info">
-      <h3>{{ selectedService.title }}</h3>
-      <p>{{ selectedService.description }}</p>
+    <div class="service-info-container">
+      <div v-if="selectedService" class="service-info">
+        <h3>{{ selectedService.title }}</h3>
+        <p>{{ selectedService.description }}</p>
+      </div>
+      <div v-else class="service-info-placeholder">
+        <p>Click on a tree node to view service details.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -75,12 +82,35 @@ export default {
 </script>
 
 <style scoped>
-.interactive-tree {
+.interactive-tree-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 20px;
   padding: 20px;
+  flex-wrap: wrap;
+}
+
+.tree-svg-container {
+  flex: 0 0 300px;
+  max-width: 100%;
+}
+
+.tree-svg-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.service-info-container {
+  flex: 1;
+  min-width: 250px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
 }
 
 .service-node {
@@ -96,12 +126,12 @@ export default {
   transform: scale(1.1);
 }
 
-.service-info {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
+.service-info,
+.service-info-placeholder {
+  width: 100%;
+  padding: 20px; /* Added padding here */
+  background-color: rgba(0, 0, 0, 0.1); /* Slight background for visibility */
   border-radius: 8px;
-  max-width: 300px;
 }
 
 .service-info h3 {
@@ -109,7 +139,24 @@ export default {
   margin-bottom: 10px;
 }
 
-.service-info p {
+.service-info p,
+.service-info-placeholder p {
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .interactive-tree-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tree-svg-container,
+  .service-info-container {
+    flex: 0 0 100%;
+  }
+
+  .service-info-container {
+    min-height: 200px;
+  }
 }
 </style>
